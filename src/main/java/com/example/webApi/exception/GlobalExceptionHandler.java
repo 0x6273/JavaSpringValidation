@@ -27,4 +27,12 @@ public class GlobalExceptionHandler {
         errors.put("error", e.getMessage());
         return errors;
     }
+
+    // Hanterar Javas NullPointerException som throwas i AdditionRequest3 av Lambok's @NonNull.
+    @ExceptionHandler(NullPointerException.class)
+    public Map<String, String> handleNullPoExceptions(NullPointerException e) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("error", e.getMessage());
+        return errors;
+    }
 }
